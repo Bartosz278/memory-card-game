@@ -34,7 +34,7 @@ const Board = () => {
     resetGame,
     setIsStatsOpen,
     shuffledTiles,
-    tiles
+    
   } = useGameStore();
 
   const numberOfCards = {
