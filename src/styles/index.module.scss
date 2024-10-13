@@ -1,0 +1,21 @@
+@import "../styles/variables.scss";
+
+body {
+  font-family: "Courier New", Courier, monospace;
+  color: antiquewhite;
+  height: 100vh;
+  overflow: hidden;
+  background-color: rgba(75, 76, 167, 1);
+  background-image: linear-gradient(
+    54deg,
+    rgba(75, 76, 167, 1) 0%,
+    rgba(41, 53, 86, 1) 70%
+  );
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+}

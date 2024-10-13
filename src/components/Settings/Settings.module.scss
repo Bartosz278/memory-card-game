@@ -1,0 +1,24 @@
+.settings {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .levels {
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .addText {
+    margin: 0 auto;
+    text-align: center;
+    u {
+      display: inline;
+      cursor: pointer;
+    }
+    input {
+      display: none;
+    }
+  }
+}
