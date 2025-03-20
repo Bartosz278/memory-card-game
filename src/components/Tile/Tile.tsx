@@ -11,27 +11,38 @@ export interface TileProps {
     isRevealed: boolean;
     isMatched: boolean;
   };
-  
 }
 
 const Tile = ({ tile }: TileProps) => {
-  const { toggleReveal, 
-    currentTile,prevTile,setPrevTile, setCurrentTile,
-    isComparing } = useGameStore();
+  const {
+    toggleReveal,
+    currentTile,
+    prevTile,
+    setPrevTile,
+    setCurrentTile,
+    isComparing,
+    difficulty,
+  } = useGameStore();
 
-  const isFlipped = tile.isRevealed || tile.id===currentTile.id || tile.id === prevTile.id || tile.isMatched ;
+  const isFlipped =
+    tile.isRevealed ||
+    tile.id === currentTile.id ||
+    tile.id === prevTile.id ||
+    tile.isMatched;
 
   const handleTileClick = () => {
-    if (tile.isRevealed || isComparing) return; 
+    if (tile.isRevealed || isComparing) return;
     setPrevTile(currentTile);
     setCurrentTile(tile);
-    toggleReveal(tile.id); 
-
-    
+    toggleReveal(tile.id);
   };
 
   return (
-    <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">
+    <ReactCardFlip
+      isFlipped={isFlipped}
+      flipDirection="vertical"
+      containerClassName={difficulty == "medium" ? styles.abc : styles.tile}
+    >
       <div className={styles.tile} onClick={handleTileClick}>
         <img src={blankImg} alt="Tile front" />
       </div>

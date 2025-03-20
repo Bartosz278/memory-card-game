@@ -5,23 +5,26 @@
   border: 1px solid rgba(216, 211, 211, 0.548);
   background-color: rgba(47, 49, 66, 0.199);
   box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
-  height: 98%;
+  height: 100%;
+
   .empty {
     background-color: inherit;
   }
+}
+.abc {
+  width: 22%;
 }
 
 img {
   width: 33.33%;
   height: auto;
   max-width: 100%;
-  
 }
 
 @media (min-width: 1000px) {
-  img{
+  img {
     width: 30.25%;
-  height: auto;
-  max-width: 100%;
+    height: auto;
+    max-width: 100%;
   }
 }

@@ -1,32 +1,32 @@
 .slider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 1s;
-  }
-  
-  .tileContainer {
-    display: flex;
-    overflow: hidden;
-    width: 200px; 
-  }
-  
-  .tile {
-    width: 50px; 
-    margin: 0 5px;
-    cursor: pointer;
-  }
-  
-  .tileImage {
-    width: 100%;
-    height: auto;
-  }
-  
-  .sliderButton {
-    background-color: #007bff;
-    border: none;
-    color: white;
-    padding: 10px;
-    cursor: pointer;
-  }
-  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 1s;
+}
+
+.tileContainer {
+  display: flex;
+  overflow: hidden;
+  width: 200px;
+}
+
+.tile {
+  width: 50px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.tileImage {
+  width: 100%;
+  height: auto;
+}
+
+.sliderButton {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}

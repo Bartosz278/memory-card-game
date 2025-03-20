@@ -6,25 +6,31 @@ import Header from "../ui/Header";
 import Stats from "../Stats/Stats";
 import Button from "../ui/Button";
 import StatsPage from "../Stats/StatsPage";
-
+import { useState } from "react";
 
 const Layout = () => {
-  const { isGameLaunched, isStatsOpen,setIsStatsOpen } = useGameStore();
-  
+  const { isGameLaunched } = useGameStore();
+  const [isStatsOpen, setIsStatsOpen] = useState<boolean>(false);
   return (
     <>
-    {isStatsOpen ? <StatsPage/> : 
-    (<>
-    <Header />
-    <Stats />
-    <Button style="basic" onClick={()=>setIsStatsOpen(true)}>Show all attemps</Button>
-    <div className={styles.layout}>
-      {isGameLaunched ? <Board /> : <Settings />}
-  
-    </div>
-    </>
-    )
-    }
+      {isStatsOpen ? (
+        <StatsPage setIsStatsOpen={setIsStatsOpen} />
+      ) : (
+        <>
+          <Header />
+          <Stats />
+          <Button style="basic" onClick={() => setIsStatsOpen(true)}>
+            Show all attemps
+          </Button>
+          <div className={styles.layout}>
+            {isGameLaunched ? (
+              <Board setIsStatsOpen={setIsStatsOpen} />
+            ) : (
+              <Settings />
+            )}
+          </div>
+        </>
+      )}
     </>
   );
 };
