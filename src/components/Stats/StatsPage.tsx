@@ -3,7 +3,11 @@ import { useGameStore } from "../../store/gameStore";
 import AttemptRow from "./AttemptRow";
 import styles from "./StatsPage.module.scss";
 
-const StatsPage = ({ setIsStatsOpen }) => {
+interface StatsPageProps {
+  setIsStatsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const StatsPage = ({ setIsStatsOpen }: StatsPageProps) => {
   const { statistics, resetGame } = useGameStore();
 
   return (

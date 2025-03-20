@@ -7,8 +7,10 @@ import ModalWindow from "../ui/ModalWindow";
 import Button from "../ui/Button";
 import { Statistic } from "../../store/gameStore.ts";
 import Stats from "../Stats/Stats.tsx";
-
-const Board = ({ setIsStatsOpen }) => {
+interface StatsPageProps {
+  setIsStatsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+const Board = ({ setIsStatsOpen }: StatsPageProps) => {
   const {
     difficulty,
     setShuffledTiles,
