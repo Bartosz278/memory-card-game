@@ -3,10 +3,10 @@ import Button from "../ui/Button";
 import styles from "./Settings.module.scss";
 import { useRef } from "react";
 import Slider from "../ui/Slider";
-
+import { FaPlus } from "react-icons/fa";
+import { AiFillThunderbolt } from "react-icons/ai";
 const Settings = () => {
-  const { toggleLaunch, setDifficulty, addTiles, tiles } =
-    useGameStore();
+  const { toggleLaunch, setDifficulty, addTiles, tiles } = useGameStore();
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleClick = () => {
@@ -46,7 +46,6 @@ const Settings = () => {
 
   return (
     <div className={styles.settings}>
-      
       <div className={styles.levels}>
         <Button style={"basic"} onClick={() => setDifficulty("easy")}>
           <p>Easy</p>
@@ -64,21 +63,21 @@ const Settings = () => {
         onClick={() => toggleLaunch(true)}
       >
         <p>Start</p>
+        <span>
+          <AiFillThunderbolt />
+        </span>
       </Button>
 
+      <Slider tiles={tiles} />
       <div>
         <p className={styles.addText}>
-          If you want to add your own cards&nbsp;
-          <u onClick={handleClick}>
-            <b>
-              click me
-              <input ref={inputRef} type="file" onChange={handleFileChange} />
-            </b>
-          </u>
+          <span onClick={handleClick} className={styles.wrapper}>
+            add tile
+            <FaPlus />
+            <input ref={inputRef} type="file" onChange={handleFileChange} />
+          </span>
         </p>
       </div>
-
-      <Slider tiles={tiles} />
     </div>
   );
 };

@@ -1,15 +1,13 @@
-
-.attemptRow{
-    display: flex;
-    gap: 10px;
-    margin: 25px;
-    justify-content: center;
-    max-width: 800px;
-    width: 95%;
-    border-bottom: 1px solid black;
-    font-size: 0.9rem;
-    .p{
-        width: 100px;
-    }
-    
+.attemptRow {
+  display: flex;
+  gap: 10px;
+  margin: 25px;
+  justify-content: center;
+  max-width: 800px;
+  width: 95%;
+  border-bottom: 1px solid black;
+  font-size: 0.9rem;
+  .p {
+    width: 100px;
+  }
 }
