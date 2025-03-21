@@ -1,4 +1,4 @@
-import { Statistic } from '../../store/gameStore';
+import { Statistic } from '../../store/gameState'
 import styles from './AttemptRow.module.scss'
 
 const AttemptRow = ({attempt}:Statistic) =>{
