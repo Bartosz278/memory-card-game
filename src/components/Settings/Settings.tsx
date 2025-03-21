@@ -5,7 +5,7 @@ import { useRef } from "react";
 import Slider from "../ui/Slider";
 
 const Settings = () => {
-  const { toggleLaunch, setDifficulty, addTiles, tiles, removeSelectedTiles } =
+  const { toggleLaunch, setDifficulty, addTiles, tiles } =
     useGameStore();
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -44,14 +44,9 @@ const Settings = () => {
     }
   };
 
-  const handleTileClick = (tileId: number) => {
-    removeSelectedTiles(tileId);
-
-  };
-
   return (
     <div className={styles.settings}>
-      <h2>Choose difficulty level</h2>
+      
       <div className={styles.levels}>
         <Button style={"basic"} onClick={() => setDifficulty("easy")}>
           <p>Easy</p>
@@ -83,7 +78,7 @@ const Settings = () => {
         </p>
       </div>
 
-      <Slider tiles={tiles} onTileClick={handleTileClick} />
+      <Slider tiles={tiles} />
     </div>
   );
 };

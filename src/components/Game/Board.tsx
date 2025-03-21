@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import checkImg from "../../assets/images/check.svg";
 import ModalWindow from "../ui/ModalWindow";
 import Button from "../ui/Button";
-import { Statistic } from "../../store/gameStore.ts";
+import { Statistic } from "../../store/gameState";
 import Stats from "../Stats/Stats.tsx";
 interface StatsPageProps {
   setIsStatsOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -14,10 +14,10 @@ const Board = ({ setIsStatsOpen }: StatsPageProps) => {
   const {
     difficulty,
     setShuffledTiles,
-    prevTile,
-    currentTile,
-    setCurrentTile,
-    setPrevTile,
+    prevRevealedTile,
+    currentRevealedTile,
+    setcurrentRevealedTile,
+    setprevRevealedTile,
     toggleReveal,
     toggleMatching,
     replaceMatchedImages,
@@ -54,36 +54,38 @@ const Board = ({ setIsStatsOpen }: StatsPageProps) => {
     return () => {
       if (timer) clearInterval(timer);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isGameLaunched, endGame]);
 
   useEffect(() => {
-    setPrevTile({ id: null, gameId: null });
+    setprevRevealedTile({ id: null, gameId: null });
     setShuffledTiles(numberOfCards[difficulty]);
-    setCurrentTile({ id: null, gameId: null });
+    setcurrentRevealedTile({ id: null, gameId: null });
     setAttempts(0);
     setEndGame(false);
     setIsComparing(false);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [difficulty, isGameLaunched]);
 
   useEffect(() => {
     const handleTilesComparison = async () => {
       setIsComparing(true);
-      if (prevTile?.id && currentTile?.id) {
-        if (prevTile.gameId === currentTile.gameId) {
-          toggleMatching(currentTile.gameId);
+      if (prevRevealedTile?.id && currentRevealedTile?.id) {
+        if (prevRevealedTile.gameId === currentRevealedTile.gameId) {
+          toggleMatching(currentRevealedTile.gameId);
           replaceMatchedImages(checkImg);
-          toggleReveal(prevTile.id);
-          toggleReveal(currentTile.id);
+          toggleReveal(prevRevealedTile.id);
+          toggleReveal(currentRevealedTile.id);
           setAttempts(attempts + 1);
         } else {
           await new Promise((resolve) => setTimeout(resolve, 1000));
-          toggleReveal(prevTile.id);
-          toggleReveal(currentTile.id);
+          toggleReveal(prevRevealedTile.id);
+          toggleReveal(currentRevealedTile.id);
           setAttempts(attempts + 1);
         }
-        setPrevTile({ id: null, gameId: null });
-        setCurrentTile({ id: null, gameId: null });
-        setPrevTile({ id: null, gameId: null });
+        setprevRevealedTile({ id: null, gameId: null });
+        setcurrentRevealedTile({ id: null, gameId: null });
+        setprevRevealedTile({ id: null, gameId: null });
       }
       setIsComparing(false);
     };
@@ -104,9 +106,12 @@ const Board = ({ setIsStatsOpen }: StatsPageProps) => {
       }
       setEndGame(true);
     }
-  }, [currentTile, prevTile]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentRevealedTile, prevRevealedTile]);
 
   return (
+    
+    
     <div className={`${styles.board} ${styles[difficulty]}`}>
       {endGame ? (
         <ModalWindow>
@@ -124,6 +129,7 @@ const Board = ({ setIsStatsOpen }: StatsPageProps) => {
         shuffledTiles.map((tile) => <Tile key={tile.id} tile={tile} />)
       )}
     </div>
+    
   );
 };
 

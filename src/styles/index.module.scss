@@ -1,8 +1,14 @@
 @import "../styles/variables.scss";
-
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0; /* Ważne, aby usunąć domyślne marginesy */
+}
 body {
   font-family: "Courier New", Courier, monospace;
-  color: antiquewhite;
+  color: rgb(40, 51, 211);
+  font-size: 1.2rem;
+  font-weight: 900;
   height: 100vh;
   overflow: hidden;
   background-color: rgba(75, 76, 167, 1);
@@ -11,6 +17,10 @@ body {
     rgba(75, 76, 167, 1) 0%,
     rgba(41, 53, 86, 1) 70%
   );
+  background-image: url("public/bg1.webp");
+  width: 100vw;
+  max-width: 100% ;
+  position: relative;
 }
 
 .app {
@@ -18,4 +28,54 @@ body {
   flex-direction: column;
   justify-content: center;
   height: 100vh;
+  width: 100vw;
+  
+}
+
+.cloud {
+  position: absolute;
+  width: 600px;
+  height: 230px;
+  aspect-ratio: 1.8;
+  --g: radial-gradient(50% 50%, #000 98%, #0000) no-repeat;
+  mask: var(--g) 100% 100%/30% 60%,var(--g) 70% 0/50% 100%,var(--g) 0 100%/36% 68%,var(--g) 27% 18%/26% 40%,linear-gradient(#000 0 0) bottom/67% 58% no-repeat;
+  background: #ffffffbb;
+  z-index: -1;
+  top: -25px;
+  rotate: 170deg;
+  left: -170px;
+  
+}
+
+.cloud2 {
+  position: absolute;
+  width: 300px;
+  aspect-ratio: 1.8;
+  --g: radial-gradient(50% 50%, #000 98%, #0000) no-repeat;
+  mask: var(--g) 100% 100%/30% 60%,var(--g) 70% 0/50% 100%,var(--g) 0 100%/36% 68%,var(--g) 27% 18%/26% 40%,linear-gradient(#000 0 0) bottom/67% 58% no-repeat;
+  background: #ffffffbb;
+  z-index: -1;
+  top: -30px;
+  right: -100px;
+  rotate: 200deg;
+}
+
+  @media (min-width: 1000px) {
+    .cloud2 {
+      position: absolute;
+      width: 400px;
+      aspect-ratio: 1.8;
+      --g: radial-gradient(50% 50%, #000 98%, #0000) no-repeat;
+      mask: var(--g) 100% 100%/30% 60%,var(--g) 70% 0/50% 100%,var(--g) 0 100%/36% 68%,var(--g) 27% 18%/26% 40%,linear-gradient(#000 0 0) bottom/67% 58% no-repeat;
+      background: #ffffffbb;
+      z-index: -1;
+      top: -30px;
+      right: -100px;
+      rotate: 200deg;
+    }
+  }
+ 
+
+p{
+  margin: 0;
 }

@@ -1,14 +1,13 @@
 import { useState } from "react";
 import styles from "./Slider.module.scss";
-import { TileProps } from "../Tile/Tile";
 import "react-slideshow-image/dist/styles.css";
+import { TileType } from "../../store/gameState";
 
 interface SliderProps {
-  tiles: TileProps["tile"][];
-  onTileClick: (tileId: number) => void;
+  tiles: TileType[];
 }
 
-const Slider = ({ tiles, onTileClick }: SliderProps) => {
+const Slider = ({ tiles }: SliderProps) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const prevSlide = () => {
@@ -36,7 +35,6 @@ const Slider = ({ tiles, onTileClick }: SliderProps) => {
           <div
             key={tile.id}
             className={styles.tile}
-            onClick={() => onTileClick(tile.gameId)}
           >
             <img src={tile.image} alt="Tile" className={styles.tileImage} />
           </div>

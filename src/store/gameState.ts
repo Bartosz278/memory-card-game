@@ -1,4 +1,11 @@
-import type { TileProps } from "../components/Tile/Tile";
+
+export interface TileType {
+  id: number;
+  gameId: number;
+  image: string;
+  isRevealed: boolean;
+  isMatched: boolean;
+}
 
 export interface Attempt {
   id: number;
@@ -10,15 +17,17 @@ export interface Attempt {
 export interface Statistic {
   attempt: Attempt;
 }
+export type Difficulty = "easy" | "medium" | "hard";
 
 export interface State {
-  difficulty: "easy" | "medium" | "hard";
-  tiles: TileProps["tile"][];
-  shuffledTiles: TileProps["tile"][];
+  matchedPairs:TileType[],
+  difficulty: Difficulty;
+  tiles: TileType[];
+  shuffledTiles: TileType[];
   isGameLaunched: boolean;
   endGame: boolean;
-  currentTile: { id: number | null; gameId: number | null };
-  prevTile: { id: number | null; gameId: number | null };
+  currentRevealedTile: { id: number | null; gameId: number | null };
+  prevRevealedTile: { id: number | null; gameId: number | null };
   isComparing: boolean;
   attempts: number;
   timeDuration: number;
@@ -26,15 +35,39 @@ export interface State {
 }
 
 export const initialState: State = {
+ 
+  matchedPairs:[],
   difficulty: "easy",
   tiles: [],
   shuffledTiles: [],
   isGameLaunched: false,
   endGame: true,
-  currentTile: { id: null, gameId: null },
-  prevTile: { id: null, gameId: null },
+  currentRevealedTile: { id: null, gameId: null },
+  prevRevealedTile: { id: null, gameId: null },
   isComparing: false,
   attempts: 0,
   timeDuration: 0,
   statistics: [],
+};
+
+export type Action = {
+  toggleLaunch: (launch: boolean) => void;
+  setDifficulty: (userChoice: State["difficulty"]) => void;
+  addTiles: (tiles: State["tiles"]) => void;
+  toggleReveal: (tileId: number | null) => void;
+  toggleMatching: (id: number | null) => void;
+  replaceMatchedImages: (image: string) => void;
+  setprevRevealedTile: (tile: State["currentRevealedTile"]) => void;
+  setShuffledTiles: (numOfTiles: number) => void;
+  setcurrentRevealedTile: (
+    tile: TileType | { id: number | null; gameId: number | null }
+  ) => void;
+  setIsComparing: (isComparing: boolean) => void;
+  setAttempts: (value: number) => void;
+  setTime: () => void;
+  resetTime: () => void;
+  setEndGame: (value: boolean) => void;
+  resetGame: () => void;
+  setStatistics: (stats: Statistic["attempt"]) => void;
+  
 };

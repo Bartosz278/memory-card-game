@@ -1,28 +1,36 @@
 .basic {
   width: 100px;
-  padding: 4px;
-  border-radius: 6px;
-  background-color: rgb(197, 197, 201);
+  height: 40px;
+  vertical-align: middle;
+  padding: 5px;
+  border-radius: 12px;
+  background-color: white;
   box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
   font-family: inherit, monospace;
   font-size: 16px;
   font-weight: 600;
   margin: 2px;
   transition: 300ms;
+  color: rgb(19, 31, 201);
+  
+ 
 }
 
 .basic:hover {
   background-color: rgb(124, 124, 126);
+  color: white;
 }
 .basic:focus {
   background-color: rgb(74, 74, 75);
+  color: white;
 }
 
 .primary {
-  background-color: rgb(31, 197, 31);
-  width: 200px;
+  background-color: rgb(56, 31, 197);
+  width: 100px;
   font-family: inherit;
   font-size: 20px;
   font-weight: 800;
   border-radius: 10px;
+  color: white;
 }
