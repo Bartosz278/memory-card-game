@@ -1,4 +1,3 @@
-
 export interface TileType {
   id: number;
   gameId: number;
@@ -20,7 +19,7 @@ export interface Statistic {
 export type Difficulty = "easy" | "medium" | "hard";
 
 export interface State {
-  matchedPairs:TileType[],
+  matchedPairs: TileType[];
   difficulty: Difficulty;
   tiles: TileType[];
   shuffledTiles: TileType[];
@@ -35,8 +34,7 @@ export interface State {
 }
 
 export const initialState: State = {
- 
-  matchedPairs:[],
+  matchedPairs: [],
   difficulty: "easy",
   tiles: [],
   shuffledTiles: [],
@@ -69,5 +67,4 @@ export type Action = {
   setEndGame: (value: boolean) => void;
   resetGame: () => void;
   setStatistics: (stats: Statistic["attempt"]) => void;
-  
 };

@@ -1,11 +1,11 @@
 @import "../styles/variables.scss";
 html,
 body {
-  min-width: 300px;
-  min-height: 400px;
+  min-width: 315px;
+  min-height: 430px;
   width: 100%;
   overflow-x: hidden;
-  margin: 0; /* Ważne, aby usunąć domyślne marginesy */
+  margin: 0;
 }
 body {
   font-family: "Courier New", Courier, monospace;
@@ -20,7 +20,7 @@ body {
     rgba(75, 76, 167, 1) 0%,
     rgba(41, 53, 86, 1) 70%
   );
-  background-image: url("public/bg1.webp");
+  background-image: url("/src/assets/bg1.webp");
   width: 100vw;
   max-width: 100%;
   position: relative;

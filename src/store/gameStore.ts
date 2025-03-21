@@ -2,15 +2,14 @@ import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
 import arrayShuffle from "array-shuffle";
 import { initialTiles } from "./tiles";
-import { State,Action, } from "./gameState";
-
+import { State, Action } from "./gameState";
 
 export const useGameStore = create<State & Action>()(
   persist(
     devtools((set, get) => ({
       currentRevealedTile: { id: null, gameId: null },
       prevRevealedTile: { id: null, gameId: null },
-      matchedPairs:[],
+      matchedPairs: [],
       attempts: 0,
       timeDuration: 0,
 
@@ -30,12 +29,17 @@ export const useGameStore = create<State & Action>()(
           const newTiles = [...state.tiles.slice(2), ...tiles];
           return { tiles: newTiles };
         }),
-      setprevRevealedTile: () => set((state) => ({ prevRevealedTile: state.currentRevealedTile })),
-      setcurrentRevealedTile: (tile) => set(() => ({ currentRevealedTile: { id: tile.id, gameId: tile.gameId } })),
+      setprevRevealedTile: () =>
+        set((state) => ({ prevRevealedTile: state.currentRevealedTile })),
+      setcurrentRevealedTile: (tile) =>
+        set(() => ({
+          currentRevealedTile: { id: tile.id, gameId: tile.gameId },
+        })),
       setIsComparing: (isComparing) => set({ isComparing }),
       setAttempts: (value) => set(() => ({ attempts: value })),
       resetTime: () => set({ timeDuration: 0 }),
-      setStatistics: (attempt) => set((state) => ({statistics: [...state.statistics, attempt]})),
+      setStatistics: (attempt) =>
+        set((state) => ({ statistics: [...state.statistics, attempt] })),
       setTime: () => {
         const { timeDuration } = get();
         set({ timeDuration: timeDuration + 1 });
@@ -50,9 +54,8 @@ export const useGameStore = create<State & Action>()(
           isGameLaunched: false,
           shuffledTiles: [],
           timeDuration: 0,
-          
         })),
-     
+
       toggleReveal: (tileId) =>
         set((state) => {
           const tile = state.shuffledTiles.find((tile) => tile.id === tileId);
@@ -77,10 +80,18 @@ export const useGameStore = create<State & Action>()(
             }
             return tile;
           });
-          const matchedTile = state.shuffledTiles.find(tile => tile.gameId === id);
-          const updatedMatchedPairs = matchedTile ? [...state.matchedPairs, matchedTile] : state.matchedPairs;
+          const matchedTile = state.shuffledTiles.find(
+            (tile) => tile.gameId === id
+          );
+          const updatedMatchedPairs = matchedTile
+            ? [...state.matchedPairs, matchedTile]
+            : state.matchedPairs;
 
-          return { ...state, shuffledTiles: updatedTiles,matchedPairs: updatedMatchedPairs };
+          return {
+            ...state,
+            shuffledTiles: updatedTiles,
+            matchedPairs: updatedMatchedPairs,
+          };
         }),
 
       replaceMatchedImages: (newImage: string) =>
@@ -101,7 +112,6 @@ export const useGameStore = create<State & Action>()(
           const shuffled = arrayShuffle(slicedTiles);
           return { shuffledTiles: shuffled };
         }),
-      
     })),
     {
       name: "game-store",

@@ -32,10 +32,7 @@ const Slider = ({ tiles }: SliderProps) => {
 
       <div className={styles.tileContainer}>
         {filteredTiles.slice(currentSlide, currentSlide + 4).map((tile) => (
-          <div
-            key={tile.id}
-            className={styles.tile}
-          >
+          <div key={tile.id} className={styles.tile}>
             <img src={tile.image} alt="Tile" className={styles.tileImage} />
           </div>
         ))}

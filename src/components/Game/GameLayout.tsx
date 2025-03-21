@@ -16,10 +16,15 @@ const Layout = () => {
         <StatsPage setIsStatsOpen={setIsStatsOpen} />
       ) : (
         <>
-            <Stats />
-            <Button style="basic" onClick={() => (isGameLaunched ? resetGame() : setIsStatsOpen(true) )}>
+          <Stats />
+          <Button
+            style="basic"
+            onClick={() =>
+              isGameLaunched ? resetGame() : setIsStatsOpen(true)
+            }
+          >
             {isGameLaunched ? "stop game" : "all attemps"}
-            </Button>
+          </Button>
           <div className={styles.layout}>
             {isGameLaunched ? (
               <Board setIsStatsOpen={setIsStatsOpen} />

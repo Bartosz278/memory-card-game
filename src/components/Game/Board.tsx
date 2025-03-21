@@ -54,7 +54,7 @@ const Board = ({ setIsStatsOpen }: StatsPageProps) => {
     return () => {
       if (timer) clearInterval(timer);
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isGameLaunched, endGame]);
 
   useEffect(() => {
@@ -64,7 +64,7 @@ const Board = ({ setIsStatsOpen }: StatsPageProps) => {
     setAttempts(0);
     setEndGame(false);
     setIsComparing(false);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [difficulty, isGameLaunched]);
 
   useEffect(() => {
@@ -106,12 +106,10 @@ const Board = ({ setIsStatsOpen }: StatsPageProps) => {
       }
       setEndGame(true);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentRevealedTile, prevRevealedTile]);
 
   return (
-    
-    
     <div className={`${styles.board} ${styles[difficulty]}`}>
       {endGame ? (
         <ModalWindow>
@@ -129,7 +127,6 @@ const Board = ({ setIsStatsOpen }: StatsPageProps) => {
         shuffledTiles.map((tile) => <Tile key={tile.id} tile={tile} />)
       )}
     </div>
-    
   );
 };
 

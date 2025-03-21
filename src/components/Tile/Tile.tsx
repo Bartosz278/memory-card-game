@@ -4,7 +4,7 @@ import blankImg from "../../assets/images/blank.webp";
 import { useGameStore } from "../../store/gameStore";
 import { TileType } from "../../store/gameState";
 
-interface TileProp{
+interface TileProp {
   tile: TileType;
 }
 
