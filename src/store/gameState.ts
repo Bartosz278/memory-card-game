@@ -4,6 +4,7 @@ export interface TileType {
   image: string;
   isRevealed: boolean;
   isMatched: boolean;
+  isUserAdded: boolean;
 }
 
 export interface Attempt {

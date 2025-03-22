@@ -4,9 +4,9 @@ import styles from "./Board.module.scss";
 import { useEffect } from "react";
 import checkImg from "../../assets/images/check.svg";
 import ModalWindow from "../ui/ModalWindow";
-import Button from "../ui/Button";
 import { Statistic } from "../../store/gameState";
 import Stats from "../Stats/Stats.tsx";
+import { IoArrowBackOutline } from "react-icons/io5";
 interface StatsPageProps {
   setIsStatsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -37,9 +37,9 @@ const Board = ({ setIsStatsOpen }: StatsPageProps) => {
   } = useGameStore();
 
   const numberOfCards = {
-    easy: 12,
-    medium: 16,
-    hard: 28,
+    easy: 6,
+    medium: 8,
+    hard: 14,
   };
 
   useEffect(() => {
@@ -116,9 +116,10 @@ const Board = ({ setIsStatsOpen }: StatsPageProps) => {
           {" "}
           <h3>Game won</h3>
           <Stats />
-          <Button style="primary" onClick={resetGame}>
+          {/* <Button style="primary" onClick={resetGame}>
             Play again
-          </Button>
+          </Button> */}
+          <IoArrowBackOutline size={48} onClick={resetGame} />
           <p className={styles.small} onClick={() => setIsStatsOpen(true)}>
             <u>show all attempts</u>
           </p>

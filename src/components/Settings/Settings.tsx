@@ -5,9 +5,16 @@ import { useRef } from "react";
 import Slider from "../ui/Slider";
 import { FaPlus } from "react-icons/fa";
 import { AiFillThunderbolt } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 const Settings = () => {
   const { toggleLaunch, setDifficulty, addTiles, tiles } = useGameStore();
   const inputRef = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
+
+  const handleStartGame = () => {
+    navigate("/game");
+    toggleLaunch(true);
+  };
 
   const handleClick = () => {
     if (inputRef.current) {
@@ -23,18 +30,20 @@ const Settings = () => {
         if (reader.result) {
           addTiles([
             {
-              id: Date.now() + Math.random(),
+              id: performance.now() + Math.random() * Date.now(),
               gameId: tiles.length + 1,
               image: reader.result as string,
               isRevealed: false,
               isMatched: false,
+              isUserAdded: true,
             },
             {
-              id: Date.now() + Math.random(),
+              id: performance.now() + Math.random() * Date.now(),
               gameId: tiles.length + 1,
               image: reader.result as string,
               isRevealed: false,
               isMatched: false,
+              isUserAdded: true,
             },
           ]);
         }
@@ -60,7 +69,7 @@ const Settings = () => {
       <Button
         style={"primary"}
         customStyle={{ margin: "20px auto" }}
-        onClick={() => toggleLaunch(true)}
+        onClick={() => handleStartGame()}
       >
         <p>Start</p>
         <span>

@@ -21,9 +21,11 @@ const StatsPage = ({ setIsStatsOpen }: StatsPageProps) => {
       >
         <IoArrowBackOutline />
       </div>
-      {statistics.map((attempt) => (
-        <AttemptRow key={attempt.id} attempt={attempt} />
-      ))}
+      <div className={styles.rows}>
+        {statistics.map((attempt) => (
+          <AttemptRow key={attempt.id} attempt={attempt} />
+        ))}
+      </div>
     </div>
   );
 };

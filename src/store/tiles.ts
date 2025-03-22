@@ -20,6 +20,7 @@ export const initialTiles = [
     image: facebookMessengerImg,
     isRevealed: false,
     isMatched: false,
+    isUserAdded: false,
   },
   {
     id: performance.now() + Math.random() * Date.now(),
@@ -27,6 +28,7 @@ export const initialTiles = [
     image: facebookMessengerImg,
     isRevealed: false,
     isMatched: false,
+    isUserAdded: false,
   },
   {
     id: performance.now() + Math.random() * Date.now(),
@@ -34,6 +36,7 @@ export const initialTiles = [
     image: linkedinImg,
     isRevealed: false,
     isMatched: false,
+    isUserAdded: false,
   },
   {
     id: performance.now() + Math.random() * Date.now(),
@@ -41,6 +44,7 @@ export const initialTiles = [
     image: linkedinImg,
     isRevealed: false,
     isMatched: false,
+    isUserAdded: false,
   },
   {
     id: performance.now() + Math.random() * Date.now(),
@@ -48,6 +52,7 @@ export const initialTiles = [
     image: whatsappImg,
     isRevealed: false,
     isMatched: false,
+    isUserAdded: false,
   },
   {
     id: performance.now() + Math.random() * Date.now(),
@@ -55,6 +60,7 @@ export const initialTiles = [
     image: whatsappImg,
     isRevealed: false,
     isMatched: false,
+    isUserAdded: false,
   },
   {
     id: performance.now() + Math.random() * Date.now(),
@@ -62,6 +68,7 @@ export const initialTiles = [
     image: youtubeImg,
     isRevealed: false,
     isMatched: false,
+    isUserAdded: false,
   },
   {
     id: performance.now() + Math.random() * Date.now(),
@@ -69,6 +76,7 @@ export const initialTiles = [
     image: youtubeImg,
     isRevealed: false,
     isMatched: false,
+    isUserAdded: false,
   },
   {
     id: performance.now() + Math.random() * Date.now(),
@@ -76,6 +84,7 @@ export const initialTiles = [
     image: androidImg,
     isRevealed: false,
     isMatched: false,
+    isUserAdded: false,
   },
   {
     id: performance.now() + Math.random() * Date.now(),
@@ -83,6 +92,7 @@ export const initialTiles = [
     image: androidImg,
     isRevealed: false,
     isMatched: false,
+    isUserAdded: false,
   },
   {
     id: performance.now() + Math.random() * Date.now(),
@@ -90,6 +100,7 @@ export const initialTiles = [
     image: javaImg,
     isRevealed: false,
     isMatched: false,
+    isUserAdded: false,
   },
   {
     id: performance.now() + Math.random() * Date.now(),
@@ -97,6 +108,7 @@ export const initialTiles = [
     image: javaImg,
     isRevealed: false,
     isMatched: false,
+    isUserAdded: false,
   },
   {
     id: performance.now() + Math.random() * Date.now(),
@@ -104,6 +116,7 @@ export const initialTiles = [
     image: appleImg,
     isRevealed: false,
     isMatched: false,
+    isUserAdded: false,
   },
   {
     id: performance.now() + Math.random() * Date.now(),
@@ -111,6 +124,7 @@ export const initialTiles = [
     image: appleImg,
     isRevealed: false,
     isMatched: false,
+    isUserAdded: false,
   },
   {
     id: performance.now() + Math.random() * Date.now(),
@@ -118,6 +132,7 @@ export const initialTiles = [
     image: atomImg,
     isRevealed: false,
     isMatched: false,
+    isUserAdded: false,
   },
   {
     id: performance.now() + Math.random() * Date.now(),
@@ -125,6 +140,7 @@ export const initialTiles = [
     image: atomImg,
     isRevealed: false,
     isMatched: false,
+    isUserAdded: false,
   },
   {
     id: performance.now() + Math.random() * Date.now(),
@@ -132,6 +148,7 @@ export const initialTiles = [
     image: bitcoinImg,
     isRevealed: false,
     isMatched: false,
+    isUserAdded: false,
   },
   {
     id: performance.now() + Math.random() * Date.now(),
@@ -139,6 +156,7 @@ export const initialTiles = [
     image: bitcoinImg,
     isRevealed: false,
     isMatched: false,
+    isUserAdded: false,
   },
   {
     id: performance.now() + Math.random() * Date.now(),
@@ -146,6 +164,7 @@ export const initialTiles = [
     image: bluetoothImg,
     isRevealed: false,
     isMatched: false,
+    isUserAdded: false,
   },
   {
     id: performance.now() + Math.random() * Date.now(),
@@ -153,6 +172,7 @@ export const initialTiles = [
     image: bluetoothImg,
     isRevealed: false,
     isMatched: false,
+    isUserAdded: false,
   },
   {
     id: performance.now() + Math.random() * Date.now(),
@@ -160,6 +180,7 @@ export const initialTiles = [
     image: discordImg,
     isRevealed: false,
     isMatched: false,
+    isUserAdded: false,
   },
   {
     id: performance.now() + Math.random() * Date.now(),
@@ -167,6 +188,7 @@ export const initialTiles = [
     image: discordImg,
     isRevealed: false,
     isMatched: false,
+    isUserAdded: false,
   },
   {
     id: performance.now() + Math.random() * Date.now(),
@@ -174,6 +196,7 @@ export const initialTiles = [
     image: githubImg,
     isRevealed: false,
     isMatched: false,
+    isUserAdded: false,
   },
   {
     id: performance.now() + Math.random() * Date.now(),
@@ -181,6 +204,7 @@ export const initialTiles = [
     image: githubImg,
     isRevealed: false,
     isMatched: false,
+    isUserAdded: false,
   },
   {
     id: performance.now() + Math.random() * Date.now(),
@@ -188,6 +212,7 @@ export const initialTiles = [
     image: photoshopImg,
     isRevealed: false,
     isMatched: false,
+    isUserAdded: false,
   },
   {
     id: performance.now() + Math.random() * Date.now(),
@@ -195,6 +220,7 @@ export const initialTiles = [
     image: photoshopImg,
     isRevealed: false,
     isMatched: false,
+    isUserAdded: false,
   },
   {
     id: performance.now() + Math.random() * Date.now(),
@@ -202,6 +228,7 @@ export const initialTiles = [
     image: pinterestImg,
     isRevealed: false,
     isMatched: false,
+    isUserAdded: false,
   },
   {
     id: performance.now() + Math.random() * Date.now(),
@@ -209,5 +236,6 @@ export const initialTiles = [
     image: pinterestImg,
     isRevealed: false,
     isMatched: false,
+    isUserAdded: false,
   },
 ];

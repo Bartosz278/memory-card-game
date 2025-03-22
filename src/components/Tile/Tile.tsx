@@ -34,7 +34,7 @@ const Tile = ({ tile }: TileProp) => {
 
   return (
     <ReactCardFlip
-      isFlipped={isFlipped}
+      isFlipped={!isFlipped}
       flipDirection="vertical"
       containerClassName={difficulty == "medium" ? styles.abc : styles.tile}
     >

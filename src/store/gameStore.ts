@@ -26,7 +26,7 @@ export const useGameStore = create<State & Action>()(
       setDifficulty: (userChoice) => set(() => ({ difficulty: userChoice })),
       addTiles: (tiles) =>
         set((state) => {
-          const newTiles = [...state.tiles.slice(2), ...tiles];
+          const newTiles = [...state.tiles, ...tiles];
           return { tiles: newTiles };
         }),
       setprevRevealedTile: () =>
@@ -106,11 +106,48 @@ export const useGameStore = create<State & Action>()(
           return { ...state, shuffledTiles: updatedTiles };
         }),
 
-      setShuffledTiles: (numOfTiles) =>
+      setShuffledTiles: (pairCount) =>
         set((state) => {
-          const slicedTiles = state.tiles.slice(0, numOfTiles);
-          const shuffled = arrayShuffle(slicedTiles);
-          return { shuffledTiles: shuffled };
+          const allTiles = state.tiles;
+          const userTiles = allTiles.filter((tile) => tile.isUserAdded);
+          const defaultTiles = allTiles.filter((tile) => !tile.isUserAdded);
+          const userPairs = [];
+          const usedIds = new Set();
+
+          for (const tile of userTiles) {
+            if (!usedIds.has(tile.gameId)) {
+              const pair = userTiles.filter((t) => t.gameId === tile.gameId);
+              if (pair.length === 2) {
+                userPairs.push(...pair);
+                usedIds.add(tile.gameId);
+              }
+            }
+          }
+
+          const missingPairs = pairCount - userPairs.length / 2;
+
+          const defaultPairs = [];
+          if (missingPairs > 0) {
+            const shuffledDefaults = arrayShuffle(defaultTiles);
+            const addedDefaultIds = new Set();
+
+            for (const tile of shuffledDefaults) {
+              if (!addedDefaultIds.has(tile.gameId)) {
+                const pair = shuffledDefaults.filter(
+                  (t) => t.gameId === tile.gameId
+                );
+                if (pair.length === 2) {
+                  defaultPairs.push(...pair);
+                  addedDefaultIds.add(tile.gameId);
+                }
+              }
+              if (defaultPairs.length / 2 >= missingPairs) break;
+            }
+          }
+
+          const finalTiles = arrayShuffle([...userPairs, ...defaultPairs]);
+
+          return { shuffledTiles: finalTiles };
         }),
     })),
     {
